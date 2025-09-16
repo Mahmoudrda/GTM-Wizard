@@ -1,0 +1,10 @@
+### Configure with meta and ga4
+POST http://localhost:8080/configure
+Content-Type: application/json
+
+{
+  "destinations": ["meta"],
+  "pixels": {
+    "meta": "123456789012345"
+  }
+}
