@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Upload - GTM Tools</title>
+    <link rel="stylesheet" href="csvStyle.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="nav-logo-icon">GTM</div>
+                <span class="nav-logo-text">Analytics Tools Suite</span>
+            </div>
+            <div class="nav-links">
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active-group">
+                        GTM Configuration
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Tag Templates</a>
+                        <a href="csvUpload.html" class="dropdown-item active">CSV Upload</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">
+                        GA4 Tools
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="cdBuilder.html" class="dropdown-item">Custom Dimensions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="wizard-container">
+            <div class="gtm-header">
+                <div class="gtm-logo">📊</div>
+                <div class="gtm-title">CSV Upload Tool</div>
+            </div>
+
+            <div class="upload-section">
+                <h1>Upload CSV File</h1>
+                <p class="subtitle">Upload your CSV file to process data for GTM configuration</p>
+
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📄</div>
+                    <div class="upload-text">
+                        <h3>Drop your CSV file here</h3>
+                        <p>or <span class="upload-link">browse files</span></p>
+                    </div>
+                    <input type="file" id="csvFile" accept=".csv" style="display: none;">
+                </div>
+
+                <div class="upload-info">
+                    <div class="info-item">
+                        <span class="info-icon">✓</span>
+                        <span>Supported format: CSV files only</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✓</span>
+                        <span>Maximum file size: 10MB</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✓</span>
+                        <span>Automatic data validation and processing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="processing-section" id="processingSection" style="display: none;">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <div class="loading-text">Processing your CSV file...</div>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2>Processing Complete</h2>
+                <p class="subtitle">Your CSV file has been successfully processed</p>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-icon">📋</div>
+                        <div class="result-title">Records Processed</div>
+                        <div class="result-value" id="recordCount">0</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">✅</div>
+                        <div class="result-title">Valid Records</div>
+                        <div class="result-value" id="validCount">0</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">❌</div>
+                        <div class="result-title">Invalid Records</div>
+                        <div class="result-value" id="invalidCount">0</div>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn-secondary" onclick="resetUpload()">Upload Another File</button>
+                    <button class="btn-primary" onclick="downloadProcessed()">Download Processed Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="csvScript.js"></script>
+</body>
+</html>
